@@ -1280,7 +1280,7 @@ shutdown(#sslsocket{pid = [Pid|_]}, How) when is_pid(Pid) ->
 %%
 %% Description: Same as inet:sockname/1
 %%--------------------------------------------------------------------
-sockname(#sslsocket{pid = {Listen,  #config{transport_info = {Transport,_,_,_,_}}}}) when is_port(Listen) ->
+sockname(#sslsocket{pid = {Listen,  #config{transport_info = {Transport,_,_,_,_}}}}) ->
     tls_socket:sockname(Transport, Listen);
 sockname(#sslsocket{pid = {dtls, #config{dtls_handler = {Pid, _}}}}) ->
     dtls_packet_demux:sockname(Pid);
